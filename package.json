@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev" : "webpack --mode development --watch",
+    "start": "node dist/main.js"
+  },
+  "devDependencies": {
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^21.4.3",
+    "bcrypt": "^6.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  }
+}
