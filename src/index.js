@@ -6,20 +6,30 @@ const { Pool } = require("pg");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = process.env.JWT_SECRET
+dotenv.config();
+
+// Ambil JWT_SECRET dari environment
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const pool = new Pool({
-  user: "postgres", // Ganti dengan username PostgreSQL Anda
-  host: "localhost",
-  database: "rekomendasi_wisata", // Nama database Anda
-  password: "Firazputra*300704", // Ganti dengan password PostgreSQL Anda
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  // Tambahkan ini agar bisa konek ke database Railway (yang pakai SSL)
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 const init = async () => {
+  const port = process.env.PORT || 5000;
+  const host = "0.0.0.0";
+
   const server = Hapi.server({
-    port: 5000,
-    host: "localhost",
+    port: port,
+    host: host,
     routes: { cors: true },
   });
 
