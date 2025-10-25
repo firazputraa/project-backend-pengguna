@@ -1,12 +1,12 @@
 "use strict";
 
+const dotenv = require("dotenv");
 const Hapi = require("@hapi/hapi");
 const { Pool } = require("pg");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET =
-  "kunci-rahasia-yang-sangat-aman-dan-panjang-untuk-proyek-ini";
+const JWT_SECRET = process.env.JWT_SECRET
 
 const pool = new Pool({
   user: "postgres", // Ganti dengan username PostgreSQL Anda

@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "dev" : "webpack --mode development --watch",
+    "dev": "webpack --mode development --watch",
     "start": "node dist/main.js"
   },
   "devDependencies": {
@@ -20,6 +20,7 @@
   "dependencies": {
     "@hapi/hapi": "^21.4.3",
     "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3"
   }
